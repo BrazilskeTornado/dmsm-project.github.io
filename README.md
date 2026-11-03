@@ -8,9 +8,19 @@ AuraPerform is a static product presentation website for an intra-workout ionic 
 - `science.html` — formula and ingredient information
 - `faq.html` — usage guide and FAQ
 - `about.html` — brand story
-- `shop.html` — static flavor presentation
+- `shop.html` — responsive shop, product details, cart, and demo checkout
+- `blog.html` — journal overview
+- `blog-article.html` — dynamic article shell used by `/blog/[slug]`
+- `admin.html` — browser-local content management panel
 
-The site has no server-side code, database, shopping cart, checkout, or email functionality. It can be hosted directly on GitHub Pages or any static web host.
+The site has no server-side database or payment processing. Product and journal edits are stored in browser `localStorage`, making the public pages update immediately without server infrastructure. The demo admin panel is available at `/admin` and uses the passcode `aura2026`.
+
+Vercel clean routes are configured in `vercel.json`:
+
+- `/shop`
+- `/blog`
+- `/blog/[slug]`
+- `/admin`
 
 ## Local preview
 
