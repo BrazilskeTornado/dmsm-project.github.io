@@ -90,26 +90,17 @@ h2 {
 .logo {
     align-items: center;
     display: inline-flex;
-    font-family: 'Space Grotesk', Arial, sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    gap: 8px;
-    letter-spacing: .1em;
+    height: 46px;
+    max-width: 250px;
     text-decoration: none;
 }
 
-.logo::before {
-    background: var(--lime);
-    border-radius: 50%;
-    box-shadow: 0 0 18px rgba(197, 255, 74, .75);
-    content: '';
-    height: 9px;
-    width: 9px;
-}
-
-.logo span {
-    color: var(--muted);
-    font-weight: 500;
+.logo img {
+    display: block;
+    height: 46px;
+    max-width: 250px;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .site-header nav {

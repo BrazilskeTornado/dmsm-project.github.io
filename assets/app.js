@@ -5,7 +5,7 @@ if (navigation && !navigation.querySelector('a[href="blog.html"]')) {
     var journalLink = document.createElement('a');
     journalLink.href = 'blog.html';
     journalLink.textContent = 'Journal';
-    var shopLink = navigation.querySelector('a[href="shop.html"]');
+    var shopLink = navigation.querySelector('a[href="http://presta.fp.vut.cz/~xhudecm00/index.php"]');
     navigation.insertBefore(journalLink, shopLink || null);
 }
 
@@ -80,7 +80,7 @@ if ('IntersectionObserver' in window) {
         var slug = new URLSearchParams(window.location.search).get('slug') || window.location.pathname.split('/').filter(Boolean).pop();
         var article = content.articles().find(function (item) { return item.slug === slug; }) || content.articles()[0];
         document.title = article.title + ' | AuraPerform';
-        target.innerHTML = '<header class="article-header"><a class="text-link" href="blog.html">← Back to journal</a><p class="eyebrow">' + article.category + '</p><h1>' + article.title + '</h1><div class="article-meta"><span>' + article.date + '</span><span>' + article.readingTime + '</span><span>By ' + (article.author || 'The AuraPerform team') + '</span></div></header><div class="article-content">' + article.content + '<aside class="article-takeaways"><p class="eyebrow">Key takeaways</p><ul>' + (article.takeaways || []).map(function (takeaway) { return '<li>' + takeaway + '</li>'; }).join('') + '</ul></aside></div><div class="article-cta"><div><p class="eyebrow">Keep the ritual going</p><strong>Choose a formula for your next session.</strong><span> Explore purposeful ingredients and find a flavor that fits the way you train.</span></div><a class="button" href="shop.html">Explore products</a></div>';
+        target.innerHTML = '<header class="article-header"><a class="text-link" href="blog.html">← Back to journal</a><p class="eyebrow">' + article.category + '</p><h1>' + article.title + '</h1><div class="article-meta"><span>' + article.date + '</span><span>' + article.readingTime + '</span><span>By ' + (article.author || 'The AuraPerform team') + '</span></div></header><div class="article-content">' + article.content + '<aside class="article-takeaways"><p class="eyebrow">Key takeaways</p><ul>' + (article.takeaways || []).map(function (takeaway) { return '<li>' + takeaway + '</li>'; }).join('') + '</ul></aside></div><div class="article-cta"><div><p class="eyebrow">Keep the ritual going</p><strong>Choose a formula for your next session.</strong><span> Explore purposeful ingredients and find a flavor that fits the way you train.</span></div><a class="button" href="http://presta.fp.vut.cz/~xhudecm00/index.php" target="_blank" rel="noopener">Explore products</a></div>';
     }
 
     var cart = [];
