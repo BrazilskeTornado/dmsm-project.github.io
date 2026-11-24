@@ -229,7 +229,7 @@ h2 {
     margin: 0 auto;
     max-width: var(--container);
     min-height: 670px;
-    padding: 85px 28px;
+    padding: 50px 28px 85px;
 }
 
 .hero > div:first-child {
@@ -389,6 +389,93 @@ blockquote cite {
 
 .page-hero.compact {
     padding-bottom: 45px;
+}
+
+.blog-hero {
+    align-items: center;
+    display: grid;
+    gap: 36px;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+    margin: auto;
+    max-width: var(--container);
+    min-height: 590px;
+    padding: 82px 28px 60px;
+}
+
+.blog-hero-copy {
+    max-width: 680px;
+}
+
+.blog-hero-copy h1 {
+    font-size: clamp(3.2rem, 5.4vw, 5rem);
+    line-height: .98;
+    margin: 18px 0 24px;
+}
+
+.blog-hero-copy .lead {
+    max-width: 620px;
+}
+
+.blog-hero-visual {
+    aspect-ratio: 4 / 4.6;
+    background:
+        radial-gradient(circle at 50% 58%, rgba(69, 200, 255, .16), transparent 30%),
+        linear-gradient(145deg, rgba(69, 200, 255, .08), rgba(197, 255, 74, .035));
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    margin: 0;
+    overflow: hidden;
+}
+
+.blog-hero-visual img {
+    display: block;
+    height: 100%;
+    padding: 20px 26px 10px;
+    object-fit: contain;
+    width: 100%;
+}
+
+.blog-product-visual {
+    aspect-ratio: 16 / 8;
+    background: radial-gradient(circle at 68% 50%, rgba(69, 200, 255, .14), rgba(7, 16, 21, .96) 68%);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    margin: 0 auto 30px;
+    max-width: calc(var(--container) - 56px);
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-product-visual img {
+    display: block;
+    height: 112%;
+    object-fit: contain;
+    object-position: center;
+    transform: translateY(-3%);
+    width: 100%;
+}
+
+.blog-product-visual figcaption {
+    bottom: 38px;
+    display: flex;
+    flex-direction: column;
+    left: 42px;
+    position: absolute;
+    z-index: 1;
+}
+
+.blog-product-visual figcaption span {
+    color: var(--lime);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.blog-product-visual figcaption strong {
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2.4rem);
 }
 
 .science-callout {
@@ -702,38 +789,33 @@ details p {
     box-shadow: none;
 }
 
-.product-orb {
+.product-visual {
+    align-items: center;
+    aspect-ratio: 1 / 1;
     background:
-        radial-gradient(circle at 31% 25%, #efffc7 0 3%, transparent 14%),
-        radial-gradient(circle at 35% 30%, #d4ff74, #78b32e 42%, #203a32 43% 59%, transparent 60%),
-        linear-gradient(135deg, rgba(69, 200, 255, .18), transparent);
-    border: 1px solid rgba(197, 255, 74, .35);
-    border-radius: 50%;
-    box-shadow: 0 0 0 26px rgba(69, 200, 255, .03), 0 0 0 52px rgba(69, 200, 255, .025), 0 30px 100px rgba(0, 0, 0, .6), inset -18px -24px 50px rgba(0, 0, 0, .35);
-    height: min(37vw, 390px);
-    justify-self: center;
-    position: relative;
+        radial-gradient(circle at 50% 58%, rgba(69, 200, 255, .16), transparent 38%),
+        linear-gradient(145deg, rgba(69, 200, 255, .08), rgba(197, 255, 74, .025));
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
     width: min(37vw, 390px);
-    animation: orb-float 7s ease-in-out infinite;
 }
 
-@keyframes orb-float {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
+.product-visual img {
+    display: block;
+    height: 96%;
+    object-fit: contain;
+    width: 96%;
+    animation: product-float 7s ease-in-out infinite;
 }
 
-.product-orb::after {
-    color: rgba(255, 255, 255, .78);
-    content: 'IONIC  /  CREATINE';
-    font-family: 'Space Grotesk', Arial, sans-serif;
-    font-size: .7rem;
-    font-weight: 700;
-    left: 50%;
-    letter-spacing: .22em;
-    position: absolute;
-    top: 52%;
-    transform: translate(-50%, -50%) rotate(-18deg);
-    white-space: nowrap;
+@keyframes product-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 .section {
@@ -2731,12 +2813,12 @@ details p {
     .hero {
         display: block;
         min-height: auto;
-        padding: 78px 22px 120px;
+        padding: 55px 22px 85px;
     }
 
-    .product-orb {
+    .product-visual {
         height: min(70vw, 320px);
-        margin: 90px auto 10px;
+        margin: 55px auto 10px;
         width: min(70vw, 320px);
     }
 
@@ -2773,6 +2855,31 @@ details p {
     .story-layout {
         align-items: start;
         display: block;
+    }
+
+    .blog-hero {
+        gap: 28px;
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 70px 22px 45px;
+    }
+
+    .blog-hero-copy h1 {
+        font-size: clamp(2.65rem, 13vw, 4rem);
+    }
+
+    .blog-hero-visual {
+        max-height: 520px;
+    }
+
+    .blog-product-visual {
+        aspect-ratio: 4 / 3;
+        max-width: calc(100% - 40px);
+    }
+
+    .blog-product-visual figcaption {
+        bottom: 24px;
+        left: 24px;
     }
 
     .section-intro {
@@ -2973,7 +3080,7 @@ details p {
         transform: none;
     }
 
-    .product-orb {
+    .product-visual img {
         animation: none;
     }
 }

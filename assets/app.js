@@ -1,23 +1,6 @@
 var menuToggle = document.querySelector('.menu-toggle');
 var navigation = document.querySelector('#main-navigation');
 
-if (navigation && !navigation.querySelector('a[href="blog.html"]')) {
-    var journalLink = document.createElement('a');
-    journalLink.href = 'blog.html';
-    journalLink.textContent = 'Journal';
-    var shopLink = navigation.querySelector('a[href="http://presta.fp.vut.cz/~xhudecm00/index.php"]');
-    navigation.insertBefore(journalLink, shopLink || null);
-}
-
-document.querySelectorAll('.site-footer .footer-links').forEach(function (footerLinks) {
-    if (!footerLinks.querySelector('a[href="blog.html"]')) {
-        var footerJournal = document.createElement('a');
-        footerJournal.href = 'blog.html';
-        footerJournal.textContent = 'Journal';
-        footerLinks.appendChild(footerJournal);
-    }
-});
-
 if (menuToggle && navigation) {
     menuToggle.addEventListener('click', function () {
         var isOpen = navigation.classList.toggle('is-open');
@@ -166,10 +149,10 @@ if ('IntersectionObserver' in window) {
             document.querySelector('#admin-login-button').onclick = function () { if (document.querySelector('#admin-passcode').value === 'aura2026') { sessionStorage.setItem('auraperform-admin', 'true'); initAdmin(); } else document.querySelector('#admin-error').textContent = 'That passcode did not match.'; };
             return;
         }
-        root.innerHTML = '<div class="admin-toolbar"><div><p class="eyebrow">Dashboard unlocked</p><h2>Journal management</h2></div><button class="button button-secondary" id="admin-logout">Lock panel</button></div><div class="admin-panels"><section class="admin-panel is-active" data-admin-panel="articles"><h3>Journal posts</h3><div id="admin-articles"></div><button class="button" id="add-article">Add article</button></section></div>';
+        root.innerHTML = '<div class="admin-toolbar"><div><p class="eyebrow">Dashboard unlocked</p><h2>Content management</h2></div><button class="button button-secondary" id="admin-logout">Lock panel</button></div><div class="admin-panels"><section class="admin-panel is-active" data-admin-panel="articles"><h3>Legacy article data</h3><div id="admin-articles"></div><button class="button" id="add-article">Add article</button></section></div>';
         renderAdminArticles();
         document.querySelector('#admin-logout').onclick = function () { sessionStorage.removeItem('auraperform-admin'); initAdmin(); };
-        document.querySelector('#add-article').onclick = function () { var articles = content.articles(); articles.push({ slug: 'new-post-' + Date.now(), title: 'New journal post', date: 'November 3, 2026', category: 'Training', excerpt: 'Add a short summary.', content: '<p>Write your article here.</p>' }); content.saveArticles(articles); renderAdminArticles(); };
+        document.querySelector('#add-article').onclick = function () { var articles = content.articles(); articles.push({ slug: 'new-post-' + Date.now(), title: 'New blog post', date: 'November 3, 2026', category: 'Training', excerpt: 'Add a short summary.', content: '<p>Write your article here.</p>' }); content.saveArticles(articles); renderAdminArticles(); };
     }
 
     function renderAdminArticles() {
